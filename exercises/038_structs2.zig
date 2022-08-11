@@ -33,6 +33,11 @@ pub fn main() void {
         .experience = 10,
     };
 
+    chars[1] = chars[0];
+
+    chars[1].gold -= 10;
+    chars[1].experience += 10;
+
     // Please add "Zump the Loud" with the following properties:
     //
     //     class      bard
