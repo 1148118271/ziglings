@@ -43,7 +43,7 @@ const Schooner = struct {
         //
         // Please change this so that it sets a 0 scale to 1
         // instead.
-        if (my_scale == 0) @compileError("Scale 1:0 is not valid!");
+        if (my_scale == 0) my_scale = 1;
 
         self.scale = my_scale;
         self.hull_length /= my_scale;
@@ -69,9 +69,8 @@ pub fn main() void {
     // Hey, we can't just pass this runtime variable as an
     // argument to the scaleMe() method. What would let us do
     // that?
-    var scale: u32 = undefined;
 
-    scale = 32; // 1:32 scale
+    comptime var scale = 32; // 1:32 scale
 
     minnow.scaleMe(scale);
     minnow.printMe();
